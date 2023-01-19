@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
-use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ShopController extends Controller
+class UserController extends Controller
 {
     public function userTable(){
         $users = User::orderByDesc('created_at')->paginate(10);
@@ -60,25 +59,5 @@ class ShopController extends Controller
             $user->delete();
             return redirect()->route('userTable');
           }
-    }
-
-    public function category(){
-        $categories = Category::orderByDesc('created_at')->paginate(10);
-        return view('category.category',[
-            'categories'=>$categories
-        ]);
-    }
-
-    public function categoryCreate(){
-        return view('category.create',[
-        ]);
-    }
-
-    public function createCategoryInfo(Request $request){
-        $category = new Category();
-        $category -> name = $request['name'];
-        $category -> mahsulotSoni = 0;
-        $category -> save();
-        return redirect() -> route('category');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +20,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.auth');
 })->name('auth.auth');
-Route::post('user/auth',[ShopController::class,'userAuth'])->name('userAuth');
+Route::post('user/auth',[UserController::class,'userAuth'])->name('userAuth');
 
 // createUser
-Route::get('user/table',[ShopController::class,'userTable'])->name('userTable');
-Route::get('user/create',[ShopController::class,'userCreate'])->name('userCreate');
-Route::post('create/info',[ShopController::class,'createInfo'])->name('createInfo');
+Route::get('user/table',[UserController::class,'userTable'])->name('userTable');
+Route::get('user/create',[UserController::class,'userCreate'])->name('userCreate');
+Route::post('create/info',[UserController::class,'createInfo'])->name('createInfo');
 
 // userDelete
-Route::get('user/delete/{id}',[ShopController::class,'userDelete'])->name('userDelete');
+Route::get('user/delete/{id}',[UserController::class,'userDelete'])->name('userDelete');
 
 // category
-Route::get('category',[ShopController::class,'category'])->name('category');
-Route::get('category/create',[ShopController::class,'categoryCreate'])->name('categoryCreate');
-Route::get('createCategory/info',[ShopController::class,'createCategoryInfo'])->name('createCategoryInfo');
+Route::get('category',[CategoryController::class,'category'])->name('category');
+Route::get('category/create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
+Route::get('createCategory/info',[CategoryController::class,'createCategoryInfo'])->name('createCategoryInfo');
 
 
 
