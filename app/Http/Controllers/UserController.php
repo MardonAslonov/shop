@@ -46,7 +46,7 @@ class UserController extends Controller
             }
     }
 
-    public function userDelete(Request $request, $id){
+    public function userDelete(Request $request){
 
         if(Auth::User()->id==$request->id){
             $users=User::orderByDesc('created_at')->paginate(10);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,7 @@ Route::get('category',[CategoryController::class,'category'])->name('category');
 Route::get('category/create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
 Route::get('createCategory/info',[CategoryController::class,'createCategoryInfo'])->name('createCategoryInfo');
 
-
-
+// product
+Route::post('product/store',[ProductController::class,'store'])->name('productStore');
+Route::get('product/create',[ProductController::class,'create'])->name('productCreate');
+Route::get('product/{name?}',[ProductController::class,'index'])->name('product');

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <br>
-<h2 class="text-center">Category</h2>
+<h2 class="text-center">{{$categoryName}}</h2>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
@@ -13,7 +13,7 @@
 
     <a href=""><button type="button" class="btn btn-warning">product</button></a>
     <a href="{{route('category')}}"><button type="button" class="btn btn-warning">category</button></a>
-    <a href="{{route('categoryCreate')}}"><button type="button" class="btn btn-success">create</button></a>
+    <a href="{{route('productCreate')}}"><button type="button" class="btn btn-success">create</button></a>
 </div>
 <br>
     <table class="table table-bordered" >
@@ -21,17 +21,19 @@
             <tr class="text-center">
                 <th class="col-md-1" >T/R</th>
                 <th>name</th>
-                <th class="col-md-2" >mahsulot soni</th>
-                {{-- <th>password</th> --}}
+                <th class="col-md-2" >cost</th>
+                <th>amount</th>
                 <th class="col-md-1">Action</th>
             </tr>
         </thead>
         <body>
-            @foreach ($categories as $category)
+            @foreach ($products as $product)
             <tr class="text-center">
                 <td>{{ ($loop->index + 1) }}</td>
-                <td><a href="{{route('product',$category->name)}}"><button type="button" class="btn btn-outline-info">{{$category->name}}</button></a></td>
-                <td>{{$category->mahsulotSoni}}</td>
+                {{-- <td><a href="{{route('product')}}"><button type="button" class="btn btn-outline-info">{{$products->name}}</button></a></td> --}}
+                <td>{{$product->name}}</td>
+                <td>{{$product->cost}}</td>
+                <td>{{$product->amount}}</td>
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href=""><button class="btn btn-primary me-md-2" type="button">update</button></a>
@@ -42,5 +44,5 @@
             @endforeach
         </body>
     </table>
-{{ $categories-> links()}}
+{{ $products-> links()}}
 @endsection
