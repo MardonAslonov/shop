@@ -13,25 +13,27 @@ class ProductController extends Controller
         $products = Product::orderByDesc('created_at')->paginate(10);
         return view('products.index',[
             'products'=>$products,
-            'categoryName'=>$request->name
+            'categoryName'=>$request->categoryName
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('products.create',[
+        'categoryName'=>$request->categoryName
         ]);
     }
 
 
     public function store(Request $request)
     {
+
         $product = new Product();
         $product -> name = $request['name'];
         $product -> cost = $request['cost'];
         $product -> amount = $request['amount'];
         $product -> save();
-        return redirect() -> route('product');
+        return redirect() -> route('product', $request->categoryName);
     }
 
     /**

@@ -6,7 +6,7 @@
 <br>
 <div class="row">
     <div class="d-grid gap-2 col-6 mx-auto">
-        <form method="post" action="{{route('productStore')}}">
+        <form method="post" action="{{route('productStore',$categoryName)}}">
             @csrf
             <div class="mb-3">
                 <label for="address" class="form-label">name</label>
