@@ -10,6 +10,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+
         $products=Product::where('category_id',$request->category_id)->get();
         return view('products.index',[
             'products'=>$products,
