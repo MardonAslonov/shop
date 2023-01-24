@@ -44,5 +44,5 @@
             @endforeach
         </body>
     </table>
-{{ $products-> links()}}
+{{-- {{ $products-> links()}} --}}
 @endsection
