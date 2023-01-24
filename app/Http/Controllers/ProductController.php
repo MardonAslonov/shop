@@ -13,15 +13,19 @@ class ProductController extends Controller
         $products = Product::orderByDesc('created_at')->paginate(10);
         return view('products.index',[
             'products'=>$products,
-            'categoryName'=>$request->categoryName
+            'categoryName'=>$request->categoryName,
+            'category_id'=>$request->category_id
         ]);
     }
 
     public function create(Request $request)
     {
         return view('products.create',[
-        'categoryName'=>$request->categoryName
+        'categoryName'=>$request->categoryName,
+        'category_id'=>$request->category_id
         ]);
+
+        // dd($request->categoryName, $request->category_id );
     }
 
 
@@ -29,11 +33,12 @@ class ProductController extends Controller
     {
 
         $product = new Product();
+        $product -> category_id = $request->category_id;
         $product -> name = $request['name'];
         $product -> cost = $request['cost'];
         $product -> amount = $request['amount'];
         $product -> save();
-        return redirect() -> route('product', $request->categoryName);
+        return redirect() -> route('product', [$request->categoryName,$request->category_id]);
     }
 
     /**

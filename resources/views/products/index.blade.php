@@ -13,7 +13,7 @@
 
     <a href=""><button type="button" class="btn btn-warning">product</button></a>
     <a href="{{route('category')}}"><button type="button" class="btn btn-warning">category</button></a>
-    <a href="{{route('productCreate', $categoryName)}}"><button type="button" class="btn btn-success">create</button></a>
+    <a href="{{route('productCreate', [$categoryName, $category_id])}}"><button type="button" class="btn btn-success">create</button></a>
 </div>
 <br>
     <table class="table table-bordered" >

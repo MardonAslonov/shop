@@ -30,7 +30,7 @@
             @foreach ($categories as $category)
             <tr class="text-center">
                 <td>{{ ($loop->index + 1) }}</td>
-                <td><a href="{{route('product',$category->name)}}"><button type="button" class="btn btn-outline-info">{{$category->name}}</button></a></td>
+                <td><a href="{{route('product',[$category->name,$category->id])}}"><button type="button" class="btn btn-outline-info">{{$category->name}}</button></a></td>
                 <td>{{$category->mahsulotSoni}}</td>
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
