@@ -11,11 +11,18 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $products=Product::where('category_id',$request->category_id)->get();
+        $category = Category::where('id',$request->category_id)->with('products')->first();
         return view('products.index',[
-            'products'=>$products,
+            'products'=>$category->products,
             'categoryName'=>$request->categoryName,
             'category_id'=>$request->category_id
+            
+        // $products=Product::where('category_id',$request->category_id)->get();
+        // return view('products.index',[
+        //     'products'=>$products,
+        //     'categoryName'=>$request->categoryName,
+        //     'category_id'=>$request->category_id
+
         ]);
     }
 
