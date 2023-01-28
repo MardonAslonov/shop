@@ -16,13 +16,6 @@ class ProductController extends Controller
             'products'=>$category->products,
             'categoryName'=>$request->categoryName,
             'category_id'=>$request->category_id
-            
-        // $products=Product::where('category_id',$request->category_id)->get();
-        // return view('products.index',[
-        //     'products'=>$products,
-        //     'categoryName'=>$request->categoryName,
-        //     'category_id'=>$request->category_id
-
         ]);
     }
 
@@ -64,20 +57,4 @@ class ProductController extends Controller
     {
         //
     }
-
-
-    ////////////////Otabek
-    public function productList($category_id){
-        $category = Category::where('id',$category_id)->with('products')->first();
-    //    dd($category);
-       foreach ($category->products as $product){
-           echo $product->name."<br>";
-       }
-       dd('tugadi');
-//        dd($category->product);
-        return view();
-    }
-    /////////////////
-
-
 }
