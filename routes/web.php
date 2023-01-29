@@ -41,4 +41,3 @@ Route::post('product/store/{categoryName?}/{category_id?}',[ProductController::c
 Route::get('product/create/{categoryName?}/{category_id?}',[ProductController::class,'create'])->name('productCreate');
 Route::get('product/{categoryName?}/{category_id?}',[ProductController::class,'index'])->name('product');
 
-Route::get('products/list/{category_id}',[ProductController::class,'productList']);
