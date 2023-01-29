@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,7 @@ class ProductApiController extends Controller
      */
     public function show($id)
     {
-        //
+        return new ProductResource(Product::findOrFail($id));
     }
 
     /**
