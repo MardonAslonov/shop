@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\UserApiController;
 use Illuminate\Http\Request;
@@ -24,4 +25,6 @@ Route::get('users',[UserApiController::class,'index']);
 Route::get('users/{id}',[UserApiController::class,'show']);
 Route::get('products',[ProductApiController::class,'index']);
 Route::get('products/{id}',[ProductApiController::class,'show']);
-
+Route::get('category',[CategoryApiController::class,'index']);
+Route::post('category/create',[CategoryApiController::class,'store']);
+Route::get('category/delete/{id}',[CategoryApiController::class,'destroy']);
