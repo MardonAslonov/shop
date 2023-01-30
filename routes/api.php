@@ -23,8 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('users',[UserApiController::class,'index']);
 Route::get('users/{id}',[UserApiController::class,'show']);
+
 Route::get('products',[ProductApiController::class,'index']);
 Route::get('products/{id}',[ProductApiController::class,'show']);
+
 Route::get('category',[CategoryApiController::class,'index']);
+Route::post('category/{id}',[CategoryApiController::class,'update']);
+Route::get('category/{id}',[CategoryApiController::class,'show']);
 Route::post('category/create',[CategoryApiController::class,'store']);
 Route::get('category/delete/{id}',[CategoryApiController::class,'destroy']);
+
+// Route::resources([
+//     'categories' => CategoryApiController::class
+// ]);
