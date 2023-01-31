@@ -15,13 +15,4 @@ class Category extends Model
     public function products(){
         return $this->hasMany(Product::class,'category_id','id');
     }
-    // public function products(){
-    //     return $this->hasMany(Product::class,'category_id','id');
-    // }
-
-    // public function products()
-    // {
-    //     return $this->hasMany(Product::class,'categoryId','id');
-    // }
-
 }

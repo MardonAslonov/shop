@@ -12,8 +12,10 @@ class CategoryApiController extends Controller
 {
     public function index()
     {
-        // return Category::all();
-        return CategoryResource::collection(Category::all());
+        return Category::with('products')->get();
+        // $aaa = Category::with('products')->first();
+        // return $aaa;
+        // return CategoryResource::collection(Category::all());
     }
 
     public function store(CategoryStoreRequest $request)
