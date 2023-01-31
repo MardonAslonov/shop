@@ -27,19 +27,18 @@ class CategoryApiController extends Controller
         return new CategoryResource(Category::findOrFail($id));
     }
 
-    public function update(CategoryStoreRequest $request, Category $cate)
+    public function update(Request $request,$id)
     {
-        $cate->update($request->validated());
-        return $cate;
-        // return 'Assalom';
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+        return $category;
     }
-
-    //
 
     public function destroy($id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         $category->delete();
-        return 'delete done';
+        return Category::all();
+
     }
 }

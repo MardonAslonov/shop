@@ -25,12 +25,15 @@ Route::get('users',[UserApiController::class,'index']);
 Route::get('users/{id}',[UserApiController::class,'show']);
 
 Route::get('products',[ProductApiController::class,'index']);
-Route::get('products/{id}',[ProductApiController::class,'show']);
+Route::post('product/create',[ProductApiController::class,'store']);
+Route::post('product/{id}',[ProductApiController::class,'update']);
+Route::get('product/{id}',[ProductApiController::class,'show']);
+Route::get('product/delete/{id}',[ProductApiController::class,'destroy']);
 
 Route::get('category',[CategoryApiController::class,'index']);
+Route::post('category/create',[CategoryApiController::class,'store']);
 Route::post('category/{id}',[CategoryApiController::class,'update']);
 Route::get('category/{id}',[CategoryApiController::class,'show']);
-Route::post('category/create',[CategoryApiController::class,'store']);
 Route::get('category/delete/{id}',[CategoryApiController::class,'destroy']);
 
 // Route::resources([
