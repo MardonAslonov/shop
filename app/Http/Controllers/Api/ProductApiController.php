@@ -14,10 +14,9 @@ class ProductApiController extends Controller
     public function index()
     {
         $product = Product::with('category')->get();
-        // dd($product);
-        return response()->json($product);
-        // $aaaa = Product::with('category')->first();
-        // return $aaaa;
+        return $product;
+
+        // return response()->json($product);
     }
 
     public function store(ProductStoreRequest $request)

@@ -11,7 +11,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('users',[UserApiController::class,'index']);
-Route::get('users/{id}',[UserApiController::class,'show']);
+Route::post('user/create',[UserApiController::class,'store']);
+Route::post('user/{id}',[UserApiController::class,'update']);
+Route::get('user/{id}',[UserApiController::class,'show']);
+Route::get('user/delete/{id}',[UserApiController::class,'destroy']);
 
 Route::get('products',[ProductApiController::class,'index']);
 Route::post('product/create',[ProductApiController::class,'store']);
@@ -24,3 +27,8 @@ Route::post('category/create',[CategoryApiController::class,'store']);
 Route::post('category/{id}',[CategoryApiController::class,'update']);
 Route::get('category/{id}',[CategoryApiController::class,'show']);
 Route::get('category/delete/{id}',[CategoryApiController::class,'destroy']);
+
+
+
+
+
