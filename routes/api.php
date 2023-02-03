@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthApiController;
 use App\Http\Controllers\Api\CategoryApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\UserApiController;
@@ -9,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('login',[AuthApiController::class,'userAuth'])->name('login');
 
 Route::get('users',[UserApiController::class,'index']);
 Route::post('user/create',[UserApiController::class,'store']);
@@ -27,8 +31,3 @@ Route::post('category/create',[CategoryApiController::class,'store']);
 Route::post('category/{id}',[CategoryApiController::class,'update']);
 Route::get('category/{id}',[CategoryApiController::class,'show']);
 Route::get('category/delete/{id}',[CategoryApiController::class,'destroy']);
-
-
-
-
-

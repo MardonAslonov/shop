@@ -13,18 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('sells', function (Blueprint $table) {
             $table->id();
-            $table->string('category_id');
-            $table->string('name');
-            $table->string('cost');
-            $table->string('amount');
+            $table->string('product_id');
+            $table->string('user_id');
+            $table->string('amount_id');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('sells');
     }
 };

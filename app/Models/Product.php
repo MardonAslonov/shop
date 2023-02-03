@@ -18,4 +18,10 @@ class Product extends Model
         //ya'ni
         //return $this->hasOne(Category::class,'tablename_id','id');
     }
+
+    public function category1()
+    {
+        return $this->belongsTo(Category::class, 'id','category_id');
+    }
+
 }

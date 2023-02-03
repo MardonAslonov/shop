@@ -15,6 +15,11 @@ class CategoryApiController extends Controller
         $categoryies = Category::with('products')->get();
         return $categoryies;
 
+
+        // $product = Category::find(1)->name;
+        // return $product;
+
+
         // return Category::all();
         // return CategoryResource::collection(Category::all());
     }
