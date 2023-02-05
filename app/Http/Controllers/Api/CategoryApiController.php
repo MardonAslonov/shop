@@ -47,6 +47,5 @@ class CategoryApiController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
         return Category::all();
-
     }
 }
