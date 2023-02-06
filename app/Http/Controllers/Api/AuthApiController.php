@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Hash;
 
 class AuthApiController extends Controller
 {
@@ -30,7 +31,8 @@ class AuthApiController extends Controller
 
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**

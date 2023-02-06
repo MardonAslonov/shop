@@ -40,6 +40,11 @@ class UserApiController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
         return $user;
+        // $token=$user->createToken('auth_token')->accessToken;
+
+        // return response([
+        //     'token'=>$token
+        // ]);
     }
 
 
