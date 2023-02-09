@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserApiController extends Controller
 {
 
     public function index()
     {
-        return UserResource::collection(User::all());
+        return User::all();
+        // UserResource::collection(User::all());
     }
 
     public function store(Request $request)
@@ -38,13 +40,13 @@ class UserApiController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->update($request->all());
-        return $user;
-        // $token=$user->createToken('auth_token')->accessToken;
+        // $user->update($request->all());
+        // return $user;
+        $token=$user->createToken('auth_token')->accessToken;
 
-        // return response([
-        //     'token'=>$token
-        // ]);
+        return response([
+            'token'=>$token
+        ]);
     }
 
 
